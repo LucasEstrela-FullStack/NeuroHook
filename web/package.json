@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "format": "biome format --write",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -17,6 +18,7 @@
     "tailwindcss": "^4.1.16"
   },
   "devDependencies": {
+    "@biomejs/biome": "2.3.1",
     "@tanstack/router-plugin": "^1.133.36",
     "@types/node": "^24.6.0",
     "@types/react": "^19.1.16",
