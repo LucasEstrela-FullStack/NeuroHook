@@ -4,6 +4,7 @@ import { Sidebar } from "../components/sidebar";
 import { WebhookDetailHeader } from "../components/webhook-detail-header";
 import { SectionTitle } from "../components/section-title";
 import { SectionDataTable } from "../components/section-data-table";
+import { CodeBlock } from "../components/ui/code-block";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -18,8 +19,10 @@ function Index() {
     { key: "Content-Length", value: "28381 bytes" },
   ]
 
+  
+
   return (
-    <div className="h-screen bg-zinc-900">
+    <div className="min-h-screen bg-zinc-900">
       <PanelGroup direction="horizontal">
          <Panel defaultSize={20} minSize={15} maxSize={40}>
           <Sidebar />
@@ -37,8 +40,19 @@ function Index() {
                     <SectionDataTable data={overviewData} />
                  </div>
 
-                 <div>
+                 <div className="space-y-4">
+                    <SectionTitle>Query Paramenters</SectionTitle>
+                    <SectionDataTable data={overviewData} />
+                 </div>
 
+                 <div className="space-y-4">
+                    <SectionTitle>Headers</SectionTitle>
+                    <SectionDataTable data={overviewData} />
+                 </div>
+
+                 <div className="space-y-4">
+                    <SectionTitle>Request Body</SectionTitle>
+                    <CodeBlock code={JSON.stringify(overviewData, null, 2)} />
                  </div>
                </div>
              </div>
