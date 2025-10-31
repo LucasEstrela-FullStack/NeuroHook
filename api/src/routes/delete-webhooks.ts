@@ -5,7 +5,7 @@ import { webhooks } from "@/db/schema";
 import { db } from "@/db";
 import { eq } from "drizzle-orm";
 
-export const deleteWebhook: FastifyPluginAsyncZod = async (app) => {
+export const deleteWebhooks: FastifyPluginAsyncZod = async (app) => {
   app.delete(
     "/api/webhooks/:id",
     {
