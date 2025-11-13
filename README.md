@@ -1,5 +1,8 @@
 # 🧠 Webhook Inspector AI
 
+<img width="1892" height="900" alt="image" src="https://github.com/user-attachments/assets/e08d99ef-b8b3-4ecc-b1e3-6712c7d528ec" />
+<img width="1895" height="904" alt="image" src="https://github.com/user-attachments/assets/d0dee364-9de3-4acd-af0e-720e489a4a37" />
+
 Ferramenta **full-stack** para inspecionar e debugar webhooks em tempo real, com integração de **IA** para análise e geração automatizada de código TypeScript.  
 Desenvolvida com **Fastify**, **PostgreSQL**, **Drizzle ORM**, **React**, **TailwindCSS**, **TanStack Query** e **Google Gemini API**.
 
