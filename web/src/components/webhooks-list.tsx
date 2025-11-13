@@ -3,6 +3,8 @@ import { webhookListSchema } from "../http/schemas/webhooks";
 import { WebHooksListItem } from "./webhooks-list-item";
 import { useSuspenseInfiniteQuery } from "@tanstack/react-query";
 import { useEffect, useRef, useState } from "react";
+import * as Dialog from "@radix-ui/react-dialog";
+import { CodeBlock } from "./ui/code-block";
 
 export function WebHooksList(){
   const loadMoreRef = useRef<HTMLDivElement>(null)
@@ -89,7 +91,8 @@ export function WebHooksList(){
   const hasAnyWebhookChecked = checkedWebhooksIds.length > 0;
 
   return(
-    <div className="flex-1 overflow-y-auto">
+    <>
+     <div className="flex-1 overflow-y-auto">
       <div className="space-y-1 p-2">
          <button
             disabled={!hasAnyWebhookChecked}
@@ -121,6 +124,19 @@ export function WebHooksList(){
            )}
         </div>
       )}
-    </div>
+     </div>
+
+     {!!generateHandlerCode && (
+      <Dialog.Root defaultOpen>
+        <Dialog.Overlay className="bg-black/60 inset-0 fixed z-20"/>
+
+        <Dialog.Content className="flex items-center justify-center fixed left-1/2 top-1/2 max-h-[85vh] w-[90vw] -translate-x-1/2 -translate-y-1/2 z-40">
+          <div className="bg-zinc-900 w-[600px] p-4 rounded-lg border border-zinc-800 max-h-[620px] overflow-y-auto">
+            <CodeBlock language="typescript" code={generateHandlerCode} />
+          </div>
+        </Dialog.Content>
+      </Dialog.Root>
+     )}
+    </>
   );
 }
